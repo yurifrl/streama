@@ -19,6 +19,22 @@ angular.module('streama').factory('modalService', ['$uibModal', '$state', functi
 			});
 		},
 
+    notificationAddModal: function (notification, callback) {
+      var modalInstance = $uibModal.open({
+        templateUrl: '/streama/modal--notification-add.htm',
+      	controller: 'modalNotificationAddCtrl',
+      	size: 'lg',
+      	resolve: {
+      	  notification: function () {
+      			return notification;
+      		}
+      	}
+      });
+
+      modalInstance.result.then(function (data) {
+        (callback || angular.noop)(data);
+      });
+    },
 
 		movieModal: function (movie, callback) {
 			var modalInstance = $uibModal.open({
@@ -94,15 +110,57 @@ angular.module('streama').factory('modalService', ['$uibModal', '$state', functi
 			});
 		},
 
+    openUserEditModal: function (user, callback) {
+      var modalInstance = $uibModal.open({
+        templateUrl: '/streama/modal--edit-user.htm',
+        controller: 'modalUserCtrl',
+        size: 'lg',
+        resolve: {
+          user: function () {
+            return user;
+          },
+					isInvite: function () {
+						return true;
+					}
+        }
+      });
 
-		userModal: function (user, callback) {
+      modalInstance.result.then(function (data) {
+        (callback || angular.noop)(data);
+      });
+    },
+
+    userCreateModal: function (user, callback) {
+      var modalInstance = $uibModal.open({
+        templateUrl: '/streama/modal--create-user.htm',
+        controller: 'modalUserCtrl',
+        size: 'lg',
+        resolve: {
+          user: function () {
+            return user;
+          },
+					isInvite: function () {
+						return false;
+					}
+        }
+      });
+
+      modalInstance.result.then(function (data) {
+        (callback || angular.noop)(data);
+      });
+    },
+
+		userInviteModal: function (user, callback) {
 			var modalInstance = $uibModal.open({
-				templateUrl: '/streama/modal--user.htm',
+				templateUrl: '/streama/modal--invite-user.htm',
 				controller: 'modalUserCtrl',
 				size: 'lg',
 				resolve: {
 					user: function () {
 						return user;
+					},
+					isInvite: function () {
+						return true;
 					}
 				}
 			});

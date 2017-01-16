@@ -6,7 +6,6 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
 			return $http.get('user/current.json');
 		},
 
-
 		tvShow: {
 			get: function (id) {
 				return $http.get('tvShow/show.json', {params: {id: id}});
@@ -41,9 +40,12 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
 			list: function () {
 				return $http.get('user.json');
 			},
-			checkAvailability: function (username) {
-				return $http.get('user/checkAvailability.json', {params: {username: username}});
+			checkAvailability: function (username, isInvite) {
+				return $http.get('user/checkAvailability.json', {params: {username: username, isInvite: isInvite}});
 			},
+      saveAndCreateUser: function (user) {
+        return $http.post('user/saveAndCreateUser.json', user);
+      },
 			saveAndInviteUser: function (user) {
 				return $http.post('user/saveAndInviteUser.json', user);
 			},
@@ -95,6 +97,9 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
 			removeFileFromDisk: function (id, path) {
 				return $http.delete('file/removeFileFromDisk.json', {params: {id: id, path: path}});
 			},
+      removeMultipleFilesFromDisk: function(bulk) {
+        return $http.delete('file/removeMultipleFilesFromDisk.json', {params: {id: bulk}})
+      },
 			cleanUpFiles: function (type) {
 				return $http.delete('file/cleanUpFiles.json', {params: {type: type}});
 			},
@@ -117,7 +122,7 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
         return $http.get('file/localFiles.json', {params: {path: path}});
       }
     },
-    
+
 		episode: {
 			get: function (id) {
 				return $http.get('episode/show.json', {params: {id: id}});
@@ -227,6 +232,9 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
 		theMovieDb: {
 			search: function (type, name) {
 				return $http.get('theMovieDb/search.json', {params: {type: type, name: name}});
+			},
+			seasonNumberForShow: function (params) {
+				return $http.get('theMovieDb/seasonNumberForShow.json', {params: params});
 			},
 			seasonForShow: function (params) {
 				return $http.get('theMovieDb/seasonForShow.json', {params: params});

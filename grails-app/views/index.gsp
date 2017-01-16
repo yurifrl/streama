@@ -27,7 +27,7 @@
     <div class="pull-left flex">
         <a class="logo" ui-sref="dash">
             <asset:image src="logo.png"></asset:image>
-            <div class="version">v1.0.6</div>
+            <div class="version">v1.0.8</div>
             <div class="spinner" ng-show="baseData.loading">
                 <div class="bounce1"></div>
                 <div class="bounce2"></div>
@@ -75,9 +75,9 @@
                 <li><a ui-sref="admin.shows">{{'MANAGE_CONTENT' | translate}}</a></li>
             </sec:ifAnyGranted>
 
-            <sec:ifLoggedIn>
+            <sec:ifAnyGranted roles="ROLE_ADMIN">
                 <li><a ui-sref="settings.settings">{{'ADMIN' | translate}}</a></li>
-            </sec:ifLoggedIn>
+            </sec:ifAnyGranted>
 
             <sec:ifLoggedIn>
                 <li>
@@ -107,6 +107,6 @@
     </div>
 
     <asset:javascript src="vendor.js" />
-    <asset:javascript src="/streama/streama.js" />
+    <asset:javascript src="streama/streama.js" />
 </body>
 </html>
