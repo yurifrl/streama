@@ -5,7 +5,7 @@ angular.module('streama').controller('dashCtrl',
 
 		if ($rootScope.currentUser.isAdmin) {
 			apiService.settings.list().success(function (data) {
-				var TheMovieDbAPI = _.find(data, {settingsKey: 'TheMovieDB API key'});
+				var TheMovieDbAPI = _.find(data, {settingsKey: 'Upload Directory'});
 
 				if (!TheMovieDbAPI.value) {
 					alertify.alert('You need to fill out some required base-settings. You will be redirected to the settings page now.', function () {
@@ -14,7 +14,6 @@ angular.module('streama').controller('dashCtrl',
 				}
 			});
 		}
-
 
 		$scope.fetchFirstEpisodeAndPlay = function (tvShow) {
 			apiService.dash.firstEpisodeForShow(tvShow.id).success(function (data) {
