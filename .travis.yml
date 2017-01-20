@@ -9,6 +9,9 @@ services:
 
 jdk: oraclejdk8
 
+install: gradle assemble
+script: gradle check
+
 after_success:
   - if [ "$TRAVIS_BRANCH" == "docker" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS";
