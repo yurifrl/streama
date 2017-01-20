@@ -50,7 +50,12 @@ angular.module('streama.translations').config(function ($translateProvider) {
 		CHANGE_PASSWORD: 'Modifier le mot de passe',
 		LANGUAGE_en: 'Angais',
 		LANGUAGE_de: 'Allemand',
-    LANGUAGE_fr: 'Français',
+		LANGUAGE_fr: 'Français',
+		LANGUAGE_es: 'Espagnol',
+		LANGUAGE_kr: 'Coréen',
+		LANGUAGE_nl: 'Néerlandais',
+		LANGUAGE_pt: 'Portugais',
+		
 		PROFIlE: {
 			USERNAME: 'Nom d\'utilisateur',
 			FULL_NAME: 'Nom complet',
@@ -132,4 +137,3 @@ angular.module('streama.translations').config(function ($translateProvider) {
 		}
 	});
 });
-

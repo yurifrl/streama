@@ -54,7 +54,12 @@ angular.module('streama.translations').config(function ($translateProvider) {
 		CHANGE_PASSWORD: 'Passwort ändern',
 		LANGUAGE_en: 'English',
 		LANGUAGE_de: 'Deutsch',
-		LANGUAGE_fr: 'French',
+		LANGUAGE_fr: 'Französisch',
+		LANGUAGE_es: 'Spanisch',
+		LANGUAGE_kr: 'Koreanisch',
+		LANGUAGE_nl: 'Niederländisch',
+		LANGUAGE_pt: 'Portugiesisch',
+		
 		PROFIlE: {
 			USERNAME: 'Benutzername',
 			FULL_NAME: 'Vollständiger Name',
