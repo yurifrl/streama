@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    image: yurifl/streama
+    build: .
+    links:
+      - db
+    ports:
+      - 8080:8080
+  db:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=streama
+      - MYSQL_USER=streama
+      - MYSQL_PASSWORD=streama
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
