@@ -9,4 +9,4 @@ RUN apk update && apk upgrade && \
     chmod u+x /usr/local/bin/streama.war && \
     apk del .build-deps-streama
 
-CMD ["/usr/local/src/streama.war"]
+CMD ["/usr/local/bin/streama.war"]
